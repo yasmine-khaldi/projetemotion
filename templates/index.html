@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>caméra</title>
+</head>
+<body>
+    <h1>Caméra Web</h1>
+    <video id="video_feed" autoplay></video>
+
+    <script>
+        var video = document.getElementById('video_feed');
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+                video.srcObject = stream;
+            })
+            .catch(function (err0r) {
+                console.log("Erreur : " + err0r);
+            });
+        }
+    </script>
+</body>
+</html>
